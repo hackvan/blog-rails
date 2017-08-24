@@ -24,6 +24,9 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>
+                <li>
+                  <%= current_user.email %>
+                </li>
                 <li class="<%= 'active' if current_page?(new_post_path) %>">
                   <%= link_to "Nuevo Post", new_post_path %>
                 </li>
