@@ -3,7 +3,7 @@
     <h2><%= post.title %></h2>
   <% end %>
   <p>Publicado por <%= post.user.email %> hace <%= time_ago_in_words post.created_at %></p>
-  <p><%= post.body %></p>
+  <div><%= truncate(strip_tags(markdown(post.body)), length: 250, escape: false) %></div>
   <% if signed_in? && post.user == current_user %>
     <div class="actions">
       <%= link_to "<span class='glyphicon glyphicon-pencil'>Editar</span>".html_safe, edit_post_path(post) %>
