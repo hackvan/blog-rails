@@ -1,4 +1,4 @@
 <div class="panel panel-default">
-  <header class="panel-heading"><%= comment.user.email %> comentó hace <%= comment.created_at %></header>
+  <header class="panel-heading"><%= comment.user.email %> comentó hace <%= time_ago_in_words comment.created_at %></header>
   <div class="panel-body"><%= comment.text %></div>
 </div>
