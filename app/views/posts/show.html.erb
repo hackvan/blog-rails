@@ -5,20 +5,11 @@
 </div>
 
 <div class="comments">
-  <h3>Comentarios:</h3>
   <% @post.comments.order('created_at').each do |comment| %>
     <%= render 'comments/show', comment: comment %>
   <% end %>
   <br>
   <% if signed_in? %>
-    <%= form_with( model: @post.comments.new, url: post_comments_path(@post.id) ) do |f| %>
-      <div class="form-group">
-        <%= f.label :text, 'Nuevo Comentario' %> <br>
-        <%= f.text_area :text, class: "form-control", placeholder: "Agregar comentario" %> <br>
-      </div>
-      <div class="actions">
-        <%= f.submit "Comentar", class: "btn btn-primary" %>
-      </div>
-    <% end %>
+    <%= render 'comments/new', post: @post %>
   <% end %>
 </div>
